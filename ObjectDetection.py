@@ -36,6 +36,14 @@ while success and cv.waitKey(1)==-1:
         for classIndex, conf, boxes in zip(labelIndex.flatten(),confidence.flatten(),bbox):
             if(classIndex<80):
                 cv.rectangle(frame,boxes,(0,0,255),2)
+
+                if(text!=labels[labelIndex[0]-1]):
+                    text=labels[labelIndex[0]-1]
+                    print(text," ",confidence," ",bbox)
+                    tts.say(text)
+                    tts.runAndWait()
+
+
         #new code
 
     else:
